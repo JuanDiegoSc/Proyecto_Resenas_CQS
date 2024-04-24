@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Proyecto_Resenas_CQS.Models;
 using System.Diagnostics;
 
-namespace Proyecto_Resenas_CQS.Controllers
+namespace Proyecto_Resenas_CQS.Areas.Cliente.Controllers
 {
+    [Area("Cliente")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
