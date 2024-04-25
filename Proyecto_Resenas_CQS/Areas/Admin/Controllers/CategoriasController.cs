@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
+using ProyectoResenas.Models.Models;
 
 namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
 {
@@ -19,6 +20,27 @@ namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Create() 
+        {
+           return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Categoria categoria)
+        {
+
+            if(ModelState.IsValid) {
+                //Logica para guardar en base de datos
+                _contenedorTrabajo.CategoriaRep.Add(categoria);
+                _contenedorTrabajo.Save();
+                return RedirectToAction(nameof(Index));
+
+            }
+            return View(categoria);
+        }
 
         #region Llamadas a la "API"
 

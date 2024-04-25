@@ -5,11 +5,16 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proyecto_Resenas_CQS", "Proyecto_Resenas_CQS\Proyecto_Resenas_CQS.csproj", "{AF522784-77EC-4347-91DB-F12789217176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoResena.AccesoDatos", "ProyectoResena.AccesoDatos\ProyectoResena.AccesoDatos.csproj", "{F2451B82-8747-4043-ACB2-E6643D940D79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoResena.AccesoDatos", "ProyectoResena.AccesoDatos\ProyectoResena.AccesoDatos.csproj", "{F2451B82-8747-4043-ACB2-E6643D940D79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoResenas.Models", "ProyectoResenas.Models\ProyectoResenas.Models.csproj", "{FC9FFDE9-17C7-4A0D-89E8-88847C8BE056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoResenas.Models", "ProyectoResenas.Models\ProyectoResenas.Models.csproj", "{FC9FFDE9-17C7-4A0D-89E8-88847C8BE056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoResenas.Utilidades", "ProyectoResenas.Utilidades\ProyectoResenas.Utilidades.csproj", "{C875A672-493A-41D8-BD85-F0FBF8869172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoResenas.Utilidades", "ProyectoResenas.Utilidades\ProyectoResenas.Utilidades.csproj", "{C875A672-493A-41D8-BD85-F0FBF8869172}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{013CEECC-14E4-40DE-BB90-B9CD08FE3F0B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

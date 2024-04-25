@@ -18,7 +18,7 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
         }
         public void Update(Categoria categoria)
         {
-            var objBaseDatos = _db.Categorias.FirstOrDefault(s => s.CategoriaId == categoria.CategoriaId);
+            var objBaseDatos = _db.Categoria.FirstOrDefault(s => s.CategoriaId == categoria.CategoriaId);
             objBaseDatos.Nombre = categoria.Nombre;
             objBaseDatos.Orden = categoria.Orden;
 

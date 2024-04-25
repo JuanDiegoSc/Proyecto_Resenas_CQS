@@ -57,7 +57,7 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
                 return orderBy(query).ToList();
             }
             // se convierte la consulta en una lista si es que no se proporciona nada
-            return query.ToList();
+            return query.ToList(); 
         }
 
         public T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
