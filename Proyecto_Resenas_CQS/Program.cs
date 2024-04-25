@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Resenas_CQS.Data;
+using ProyectoResena.AccesoDatos.Data.Repositorio;
+using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//Agregar contenedor de trabajo al contenedor IoC de inyección de dependencias
+builder.Services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
 
 var app = builder.Build();
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ProyectoResenas.Models.Models;
 
 namespace Proyecto_Resenas_CQS.Data
 {
@@ -9,5 +10,7 @@ namespace Proyecto_Resenas_CQS.Data
             : base(options)
         {
         }
+        //Añadimos el modelo de categoria 
+        public DbSet<Categoria> Categorias { get; set; }
     }
 }
