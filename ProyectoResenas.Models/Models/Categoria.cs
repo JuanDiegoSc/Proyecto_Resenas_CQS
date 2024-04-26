@@ -14,7 +14,7 @@ namespace ProyectoResenas.Models.Models
 
         [Required(ErrorMessage = "Ingrese un nombre para la categoria")]
         [Display(Name ="Nombre de Catageoría")] //Muestra el texto en el campo del formulario 
-        public string? Nombre { get; set; }
+        public string Nombre { get; set; }
 
         [Display(Name ="Orden de visualización")]
         public  int? Orden { get; set; }

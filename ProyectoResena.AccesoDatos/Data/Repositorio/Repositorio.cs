@@ -33,35 +33,31 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, string? includeProperties = null)
         {
-            // Se crea una consulta IQueryable a partir del DbSet del contexto
+            //Se crea una consulta IQuerayble a partir del dbset del contexto
             IQueryable<T> query = dbSet;
 
-            // Se aplica el filtro si se proporciona
+            //se aplica el filtro si se proporciona
             if (filter != null)
             {
                 query = query.Where(filter);
-
             }
 
-            // Se incluyen propiedades de navegación si se proporcionan
-            if (includeProperties != null)
+            //se incluyen propiedades de navegacion si se proporcionan
+            if(includeProperties != null)
             {
-                // Se divide la cadena de propiedades por coma y se itera sobre ellas
-                foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
+                //se divide la cadena de propiedades por coma y se itera sobre ellas
+                foreach(var includeProperty in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)){
                     query = query.Include(includeProperty);
                 }
             }
-
-            // Se aplica el ordenamiento si se proporciona
-            if (orderBy != null)
+            //Se aplica el ordenamiento si se proporciona
+            if(orderBy != null)
             {
-                // Se ejecuta la función de ordenamiento y se convierte la consulta en una lista
+                //Se convierte la consulta en una lista
                 return orderBy(query).ToList();
             }
-
-            // Si no se proporciona ordenamiento, simplemente se convierte la consulta en una lista
-            return query.ToList();
+            // se convierte la consulta en una lista si es que no se proporciona nada
+            return query.ToList(); 
         }
 
         public T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)

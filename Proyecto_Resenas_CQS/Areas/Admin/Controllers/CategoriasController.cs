@@ -42,31 +42,12 @@ namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
             return View(categoria);
         }
 
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            Categoria categoria = new Categoria();
-            categoria = _contenedorTrabajo.CategoriaRep.Get(id);
-            if(categoria == null)
-            {
-                return NotFound();
-            }
-            return View(categoria);
-        }
-
         #region Llamadas a la "API"
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var data = _contenedorTrabajo.CategoriaRep.GetAll()
-                .Select(c => new {
-                    c.CategoriaId,
-                    c.Nombre,
-                    c.Orden
-                }).ToList();
-
-            return Json(new {data});
+            return Json(new {data = _contenedorTrabajo.CategoriaRep.GetAll()});
         }
 
         #endregion

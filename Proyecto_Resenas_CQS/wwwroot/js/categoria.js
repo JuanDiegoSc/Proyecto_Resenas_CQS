@@ -13,11 +13,11 @@ function cargarDatatable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "CategoriaId", "width": "5%" },
+            { "data": "id", "width": "5%" },
             { "data": "nombre", "width": "40%" },
             { "data": "orden", "width": "10%" },
             {
-                "data": "CategoriaId",
+                "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
                                 <a href="/Admin/Categorias/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
