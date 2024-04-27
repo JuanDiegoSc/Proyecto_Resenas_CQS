@@ -10,6 +10,7 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio
     {
         //Aqui se deben agregar los diferentes repositorios 
         ICategoriaRepositorio CategoriaRep {  get; }
+        IJuegoRepositorio JuegoRep { get; }
 
         void Save();
 

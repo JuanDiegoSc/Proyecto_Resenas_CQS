@@ -6,25 +6,26 @@ $(document).ready(function () {
 
 
 function cargarDatatable() {
-    dataTable = $("#tblCategorias").DataTable({
+    dataTable = $("#tblJuegos").DataTable({
         "ajax": {
-            "url": "/admin/categorias/GetAll",
+            "url": "/admin/juegos/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "categoriaId", "width": "5%" },
-            { "data": "nombre", "width": "40%" },
-            { "data": "orden", "width": "10%" },
+            { "data": "id", "width": "5%" },
+            { "data": "nombre", "width": "20%" },
+            { "data": "categoriaId", "width": "15%" },
+            { "data": "fechaCreacion", "width": "15%" },
             {
                 "data": "categoriaId",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/Admin/Categorias/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
+                                <a href="/Admin/Juegos/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
                                 <i class="far fa-edit"></i> Editar
                                 </a>
                                 &nbsp;
-                                <a onclick=Delete("/Admin/Categorias/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer; width:140px;">
+                                <a onclick=Delete("/Admin/Juegos/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer; width:140px;">
                                 <i class="far fa-trash-alt"></i> Borrar
                                 </a>
                           </div>

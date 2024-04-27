@@ -12,5 +12,6 @@ namespace Proyecto_Resenas_CQS.Data
         }
         //Añadimos el modelo de categoria 
         public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Juego> Juego { get; set; }
     }
 }
