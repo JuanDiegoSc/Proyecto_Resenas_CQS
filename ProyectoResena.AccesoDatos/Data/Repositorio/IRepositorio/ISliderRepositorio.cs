@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio
 {
-    public interface ICategoriaRepositorio : IRepositorio<Categoria>
+    public interface ISliderRepositorio : IRepositorio<Slider>
     {
-        void Update(Categoria categoria);
+        void Update(Slider slider);
 
-        IEnumerable<SelectListItem> GetListaCategorias();
+       
     }   
 
 }

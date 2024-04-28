@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
-using ProyectoResenas.Models.Models;
+using ProyectoResenas.Models;
 
 namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
 {
@@ -63,6 +63,7 @@ namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 //Logica para actualizar en base de datos
+                
                 _contenedorTrabajo.CategoriaRep.Update(categoria);
                 _contenedorTrabajo.Save();
                 return RedirectToAction(nameof(Index));

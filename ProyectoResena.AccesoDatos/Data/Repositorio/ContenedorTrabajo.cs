@@ -21,10 +21,12 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
             //Se crean los repositorios 
             CategoriaRep = new CategoriaRepositorio(_db);
             JuegoRep = new JuegoRepositorio(_db);
+            SliderRep = new SliderRepositorio(_db);
         }
 
         public ICategoriaRepositorio CategoriaRep {  get; private set; }
         public IJuegoRepositorio JuegoRep { get; private set; }
+        public ISliderRepositorio SliderRep { get; private set; }
         public void Dispose()
         {
            _db.Dispose();

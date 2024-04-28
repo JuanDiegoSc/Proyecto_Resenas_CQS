@@ -1,6 +1,7 @@
-﻿using Proyecto_Resenas_CQS.Data;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Proyecto_Resenas_CQS.Data;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
-using ProyectoResenas.Models.Models;
+using ProyectoResenas.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,15 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
         public CategoriaRepositorio(ApplicationDbContext db) : base(db) 
         {
             _db = db;
+        }
+
+        public IEnumerable<SelectListItem> GetListaCategorias()
+        {
+            return _db.Categoria.Select(i => new SelectListItem()
+            {
+                Text = i.Nombre,
+                Value = i.CategoriaId.ToString()
+            });
         }
 
         public void Update(Categoria categoria)

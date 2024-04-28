@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Proyecto_Resenas_CQS.Models;
+using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
+using ProyectoResenas.Models;
+using ProyectoResenas.Models.ViewModels;
 using System.Diagnostics;
 
 namespace Proyecto_Resenas_CQS.Areas.Cliente.Controllers
@@ -7,16 +9,31 @@ namespace Proyecto_Resenas_CQS.Areas.Cliente.Controllers
     [Area("Cliente")]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IContenedorTrabajo _contenedorTrabajo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IContenedorTrabajo contenedorTrabajo)
         {
-            _logger = logger;
+            _contenedorTrabajo = contenedorTrabajo;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            HomeVM homeVM = new HomeVM()
+            {
+                Sliders = _contenedorTrabajo.SliderRep.GetAll(),
+                ListaJuegos = _contenedorTrabajo.JuegoRep.GetAll(),
+            };
+
+            ViewBag.IsHome = true;
+            return View(homeVM);
+        }
+
+        [HttpGet]
+        public IActionResult Detalle(int id)
+        {
+            var juegoDesdeBD = _contenedorTrabajo.JuegoRep.Get(id);
+            return View(juegoDesdeBD);
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,4 @@
-namespace Proyecto_Resenas_CQS.Models
+namespace ProyectoResenas.Models
 {
     public class ErrorViewModel
     {

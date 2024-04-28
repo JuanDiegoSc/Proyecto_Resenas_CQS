@@ -1,0 +1,81 @@
+﻿@model ProyectoResenas.Models.ViewModels.JuegoVM
+@{
+   ViewData["Title"] = "Crear Juego";
+}
+<br />
+<br />
+
+<h3 class="text-center">Crear una nuevo Juego</h3>
+<form method="POST" asp-action="Create" enctype="multipart/form-data">
+    <div class="row px-2 offset-1 border">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="col-10 offset-1 mt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Juego.Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Juego.Nombre" class="form-control" placeholder="Ingresa el nombre" />
+                    <span asp-validation-for="Juego.Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Juego.Descripcion"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Juego.Descripcion" class="form-control" style="height 100px;"></textarea>
+                    <span asp-validation-for="Juego.Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label for="Categoría">Categoría</label>
+                </div>
+                <div class="col-8"> 
+                        @Html.DropDownListFor(m => m.Juego.CategoriaId, Model.ListaCategorias,
+                           "-Seleccione una categoria-", new { @class = "form-control" })
+                        <span asp-validation-for="Juego.CategoriaId" class="text-danger"></span>
+                    
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Juego.UrlImagen"></label>
+                </div>
+                <div class="col-8">
+                    <input type = "file" name="archivos" id= "subidaArchivo"  class="form-control"  />
+                    <span asp-validation-for="Juego.UrlImagen" class="text-danger"></span>
+                </div>
+            </div>
+       
+            <br />
+            <div class="form-group row">
+                <div class="col-5">
+                    <partial name="_VistaCrearVolver" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.0.1/tinymce.min.js" integrity="sha512-KGtsnWohFUg0oksKq7p7eDgA1Rw2nBfqhGJn463/rGhtUY825dBqGexj8eP04LwfnsSW6dNAHAlOqKJKquHsnw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+    </script>
+}
+

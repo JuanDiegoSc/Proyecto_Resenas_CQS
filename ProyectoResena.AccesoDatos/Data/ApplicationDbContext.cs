@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ProyectoResenas.Models.Models;
+using ProyectoResenas.Models;
 
 namespace Proyecto_Resenas_CQS.Data
 {
@@ -13,5 +13,6 @@ namespace Proyecto_Resenas_CQS.Data
         //Añadimos el modelo de categoria 
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Juego> Juego { get; set; }
+        public DbSet<Slider> Slider { get; set; }
     }
 }
