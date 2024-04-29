@@ -37,5 +37,7 @@ namespace ProyectoResenas.Models
         [ForeignKey("CategoriaId")]
         public Categoria? Categoria { get; set; }
 
+        //public Resena? Resena { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Proyecto_Resenas_CQS.Data;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Proyecto_Resenas_CQS.Data;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
 using ProyectoResenas.Models;
 using System;
@@ -16,10 +17,18 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
         {
             _db = db;
         }
+        public IEnumerable<SelectListItem> GetListaJuegos()
+        {
+            return _db.Juego.Select(i => new SelectListItem()
+            {
+                Text = i.Nombre,
+                Value = i.Id.ToString()
+            });
+        }
 
         public void Update(Juego juego)
         {
-            var objBaseDatos = _db.Juego.FirstOrDefault(s => s.Id == juego.CategoriaId);
+            var objBaseDatos = _db.Juego.FirstOrDefault(s => s.Id == juego.Id);
             objBaseDatos.Nombre = juego.Nombre;
             objBaseDatos.Descripcion = juego.Descripcion;
             objBaseDatos.UrlImagen = juego.UrlImagen;

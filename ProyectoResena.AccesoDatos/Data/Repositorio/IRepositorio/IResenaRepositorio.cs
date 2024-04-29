@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio
 {
-    public interface IJuegoRepositorio : IRepositorio<Juego>
+    public interface IResenaRepositorio : IRepositorio<Resena>
     {
-        void Update(Juego juego);
-        IEnumerable<SelectListItem> GetListaJuegos();
-    }   
-}
+        void Update(Resena Resena);
 
+       
+    }   
+
+}

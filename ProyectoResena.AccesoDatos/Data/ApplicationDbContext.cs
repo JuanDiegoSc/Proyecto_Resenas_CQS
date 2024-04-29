@@ -14,5 +14,6 @@ namespace Proyecto_Resenas_CQS.Data
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Juego> Juego { get; set; }
         public DbSet<Slider> Slider { get; set; }
+        public DbSet<Resena> Resena { get; set; }
     }
 }
