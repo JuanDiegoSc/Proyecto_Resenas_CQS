@@ -85,7 +85,7 @@ namespace Proyecto_Resenas_CQS.Areas.Cliente.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = _contenedorTrabajo.ResenaRep.GetAll() });
+            return Json(new { data = _contenedorTrabajo.ResenaRep.GetAll(includeProperties: "Juego") });
         }
         [HttpDelete]
         public IActionResult Delete(int id)

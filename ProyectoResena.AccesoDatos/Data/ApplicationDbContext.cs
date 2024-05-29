@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProyectoResenas.Models;
 
 namespace Proyecto_Resenas_CQS.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -15,5 +16,6 @@ namespace Proyecto_Resenas_CQS.Data
         public DbSet<Juego> Juego { get; set; }
         public DbSet<Slider> Slider { get; set; }
         public DbSet<Resena> Resena { get; set; }
+        public DbSet<AppUser> AppUser { get; set; }
     }
 }
