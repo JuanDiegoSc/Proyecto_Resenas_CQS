@@ -8,7 +8,7 @@ using Proyecto_Resenas_CQS.Data;
 
 #nullable disable
 
-namespace Proyecto_Resenas_CQS.Data.Migrations
+namespace ProyectoResena.AccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot

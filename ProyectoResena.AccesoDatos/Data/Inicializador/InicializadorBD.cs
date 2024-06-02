@@ -51,10 +51,14 @@ namespace ProyectoResena.AccesoDatos.Data.Inicializador
                 UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
                 EmailConfirmed = true,
-                Nombre = "Admin"
+                Nombre = "Admin",
+                Direccion = "Null",
+                Ciudad = "Null",
+                Pais = "Null",
             }, "Admin123*").GetAwaiter().GetResult();
 
-            AppUser usuario = _bd.AppUser.Where(us => us.Email == "admin@gmail.com").FirstOrDefault();
+            AppUser usuario = _bd.AppUser.
+                Where(us => us.Email == "admin@gmail.com").FirstOrDefault();
             _userManager.AddToRoleAsync(usuario, CNT.Administrador).GetAwaiter().GetResult();
         }
     }
