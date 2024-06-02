@@ -12,6 +12,10 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio
     {
         void Update(Juego juego);
         IEnumerable<SelectListItem> GetListaJuegos();
+
+        //Metodo busqueda
+
+        IQueryable<Juego> AsQueryable();
     }   
 }
 

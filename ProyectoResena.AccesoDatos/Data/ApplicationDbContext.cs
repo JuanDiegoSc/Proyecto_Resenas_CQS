@@ -5,7 +5,7 @@ using ProyectoResenas.Models;
 
 namespace Proyecto_Resenas_CQS.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

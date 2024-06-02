@@ -23,13 +23,13 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
             return _db.Categoria.Select(i => new SelectListItem()
             {
                 Text = i.Nombre,
-                Value = i.CategoriaId.ToString()
+                Value = i.Id.ToString()
             });
         }
 
         public void Update(Categoria categoria)
         {
-            var objBaseDatos = _db.Categoria.FirstOrDefault(s => s.CategoriaId == categoria.CategoriaId);
+            var objBaseDatos = _db.Categoria.FirstOrDefault(s => s.Id == categoria.Id);
             objBaseDatos.Nombre = categoria.Nombre;
             objBaseDatos.Orden = categoria.Orden;
 

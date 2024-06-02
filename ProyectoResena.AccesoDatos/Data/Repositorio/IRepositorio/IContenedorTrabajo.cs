@@ -13,6 +13,7 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio
         IJuegoRepositorio JuegoRep { get; }
         ISliderRepositorio SliderRep { get; }
         IResenaRepositorio ResenaRep { get; }
+        IUsuarioRep UsuarioRep { get; }
 
         void Save();
 

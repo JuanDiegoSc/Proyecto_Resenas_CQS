@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
@@ -6,6 +7,7 @@ using ProyectoResenas.Models.ViewModels;
 
 namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [Area("Admin")]
     public class JuegosController : Controller
     {

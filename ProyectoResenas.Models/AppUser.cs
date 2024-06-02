@@ -11,16 +11,16 @@ namespace ProyectoResenas.Models
     public class AppUser : IdentityUser
     {
         [Required (ErrorMessage ="El nombre es obligatorio")]
-        public string  Nombre { get; set; }
+        public string?  Nombre { get; set; }
 
         [Required(ErrorMessage = "La dirección es obligatoria")]
-        public string Direccion { get; set; }
+        public string? Direccion { get; set; }
 
         [Required(ErrorMessage = "La ciudad es obligatoria")]
-        public string Ciudad { get; set; }
+        public string? Ciudad { get; set; }
 
         [Required(ErrorMessage = "El país es obligatorio")]
-        public string Pais { get; set; }
+        public string? Pais { get; set; }
 
     }
 }

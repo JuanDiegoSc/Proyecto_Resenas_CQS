@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
 using ProyectoResenas.Models.ViewModels;
 using ProyectoResenas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [Area("Admin")]
     public class SlidersController : Controller
     {

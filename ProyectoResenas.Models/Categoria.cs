@@ -11,7 +11,7 @@ namespace ProyectoResenas.Models
     {
 
         [Key]
-        public int CategoriaId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Ingrese un nombre para la categoria")]
         [Display(Name = "Nombre de Catageoría")] //Muestra el texto en el campo del formulario 

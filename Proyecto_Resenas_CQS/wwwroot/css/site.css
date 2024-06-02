@@ -16,7 +16,25 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+/*
 body {
   margin-bottom: 60px;
+}*/
+
+.busqueda ::placeholder {
+    color: #101010 !important;
+}
+
+.navbar{
+    padding: 10px 0;
+}
+
+.busqueda .input-group-append{
+    display: flex;
+    align-items: center;
+}
+
+.busqueda .btn-secondary {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }

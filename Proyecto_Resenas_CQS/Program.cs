@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Resenas_CQS.Data;
+using ProyectoResena.AccesoDatos.Data.Inicializador;
 using ProyectoResena.AccesoDatos.Data.Repositorio;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
+using ProyectoResenas.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,12 +14,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI();
 builder.Services.AddControllersWithViews();
 
 //Agregar contenedor de trabajo al contenedor IoC de inyecci�n de dependencias
 builder.Services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
+
+//Siembra de datos
+
+builder.Services.AddScoped<IInicializadorBD, InicializadorBD>();
 
 var app = builder.Build();
 
@@ -32,6 +39,10 @@ else
 }
 app.UseStaticFiles();
 
+//Ejecuta la siembra de datos
+
+siembraDatos();
+
 app.UseRouting();
 
 app.UseAuthorization();
@@ -42,3 +53,13 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+
+void siembraDatos()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var incializadorBD = scope.ServiceProvider.GetRequiredService<IInicializadorBD>();
+        incializadorBD.Inicializar();
+    }
+}

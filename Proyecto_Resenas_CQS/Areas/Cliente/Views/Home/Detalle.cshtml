@@ -6,7 +6,7 @@
     //Fecha
     DateTime fechaCreacion = DateTime.Parse(Model.FechaCreacion);
 
-    string fechaActualizada = fechaCreacion.ToString("dd/MM/YYYY");
+    string fechaActualizada = fechaCreacion.ToString("dd/MM/yyyy");
 }
 
 <br/>
@@ -14,7 +14,7 @@
     <div class="card">
         <div class="card-header bg-light- text-light">
             <div class="col-12">
-                <h4 class="text-white text-center">@Model.Descripcion</h4>
+                <h4 class="text-white text-center">@Model.Nombre</h4>
             </div>
             <div class="col-12 text-md-right">
                 <p class="text-muted"> Fecha: @fechaActualizada</p>
@@ -24,8 +24,6 @@
             <div class="col-12">
                 <img src="@Model.UrlImagen" class="img-thumbnail mx-auto d-block" />
                 <p class="text-white text-secondary">@Html.Raw(Model.Descripcion)</p>
-                @* <h2>class="text-white text-center"Reseña</h2> *@
-                @* <p class="text-secondary">@Html.Raw(Model.Resena.Comentario)</p> *@
             </div>
         </div>
         <div class="card-footer">

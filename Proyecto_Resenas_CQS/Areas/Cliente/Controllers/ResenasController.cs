@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
 using ProyectoResenas.Models;
 using ProyectoResenas.Models.ViewModels;
 
 namespace Proyecto_Resenas_CQS.Areas.Cliente.Controllers
 {
+    [Authorize(Roles = "Registrado")]
     [Area("Cliente")]
     public class ResenasController : Controller
     {

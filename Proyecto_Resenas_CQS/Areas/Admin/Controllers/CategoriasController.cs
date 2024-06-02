@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using ProyectoResena.AccesoDatos.Data.Repositorio.IRepositorio;
 using ProyectoResenas.Models;
 
 namespace Proyecto_Resenas_CQS.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [Area("Admin")]
     public class CategoriasController : Controller
     {

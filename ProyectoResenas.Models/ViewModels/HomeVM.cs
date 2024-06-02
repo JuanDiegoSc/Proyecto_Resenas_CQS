@@ -10,5 +10,9 @@ namespace ProyectoResenas.Models.ViewModels
     {
         public IEnumerable<Slider> Sliders { get; set; }
         public IEnumerable<Juego> ListaJuegos { get; set; }
+
+        //Paginación
+        public int PageIndex { get; set; }
+        public int TotalPage { get; set; }
     }
 }

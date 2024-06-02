@@ -1,31 +1,23 @@
-﻿@model ProyectoResenas.Models.ViewModels.HomeVM
-@{
-    ViewData["Title"] = "Inicio";
-}
+﻿@using ProyectoResenas.Models
+@model ListaPaginada<Juego>
 
+    <h2 class="text-center">Lista de entradas</h2>
 
-
-<div class="row mt-1">
-    <div class="col-sm-12">
-        <h1 class="text-center text-white bg-secondary py-1">Novedades</h1>
-    </div>
-</div>
-
-@if (Model.ListaJuegos.Count() > 0)
+@if (Model.Count() > 0)
 {
     <hr />
     <div class="row">
-        @foreach (var juego in Model.ListaJuegos.OrderBy(o => o.Id))
+        @foreach (var juego in Model)
         {
             <div class="col-4">
                 <div class="card">
                     <img src="@juego.UrlImagen" class="img-thumbnail" width="100%" />
                     <div class="card-body">
                         <h5 class="text-center">@juego.Nombre</h5>
-                        <a asp-action="Detalle" class="btn btn-success" style="border-radius:10px" asp-route-id ="@juego.Id">
+                        <a asp-action="Detalle" class="btn btn-success" style="border-radius:10px" asp-route-id="@juego.Id">
                             Más información
                         </a>
-                      </div>
+                    </div>
                 </div>
             </div>
         }
@@ -35,7 +27,10 @@ else
 {
     <p>No hay Juegos</p>
 }
+
 <br />
+<br /> 
+
 <!--Crear botones de páginación-->
 
 <div class="text-center">

@@ -17,6 +17,12 @@ namespace ProyectoResena.AccesoDatos.Data.Repositorio
         {
             _db = db;
         }
+
+        public IQueryable<Juego> AsQueryable()
+        {
+            return _db.Set<Juego>().AsQueryable();
+        }
+
         public IEnumerable<SelectListItem> GetListaJuegos()
         {
             return _db.Juego.Select(i => new SelectListItem()
