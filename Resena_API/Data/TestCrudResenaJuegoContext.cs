@@ -28,7 +28,7 @@ public partial class TestCrudResenaJuegoContext : DbContext
 
     public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categoria { get; set; }
 
     public virtual DbSet<Juego> Juegos { get; set; }
 

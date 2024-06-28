@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Resena_API.Data;
+using Resena_API.Controllers;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Resena_APIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Resena_APIContext") ?? throw new InvalidOperationException("Connection string 'Resena_APIContext' not found.")));
 
 // Add services to the container.
 
@@ -21,5 +27,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapJuegoEndpoints();
+
+app.MapResenaEndpoints();
+
+app.MapCategoriaEndpoints();
 
 app.Run();

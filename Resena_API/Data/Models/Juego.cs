@@ -17,7 +17,7 @@ public partial class Juego
 
     public int CategoriaId { get; set; }
 
-    public virtual Categorium Categoria { get; set; } = null!;
+    public virtual Categoria Categoria { get; set; } = null!;
 
     public virtual ICollection<Resena> Resenas { get; set; } = new List<Resena>();
 }
