@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Proyecto_Resenas_CQS.Data;
 using ProyectoResena.AccesoDatos.Data.Inicializador;
 using ProyectoResena.AccesoDatos.Data.Repositorio;
@@ -38,6 +39,19 @@ else
     app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
+
+//Carpeta de imagenes 
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "wwwroot", "imagenes", "juegos")),
+    RequestPath = "/imagenes/juegos"
+});
+
 
 //Ejecuta la siembra de datos
 
