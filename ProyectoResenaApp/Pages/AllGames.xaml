@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoResenaApp.Pages.AllGames"
+             Shell.BackgroundColor="#311B45"
+             Title="AllGames">
+
+    <Grid BackgroundColor="#0D0118" RowDefinitions=".05*,.1*,.45*,.05*,.05*,.3*">
+        <Label FontSize="16"
+               HorizontalOptions="Center"
+               Text="Todos los juegos"
+               TextColor="White"
+               VerticalOptions="Center">
+        </Label>
+
+        <Grid Grid.Row="1" Margin="25,10,25,10">
+            <RoundRectangle CornerRadius="25"
+                            Fill="#311b45"
+                            HeightRequest="45"></RoundRectangle>
+
+            <SearchBar CancelButtonColor="White"
+                       Placeholder="Buscar videojuego"
+                       PlaceholderColor="#AC9DB9"
+                       TextColor="white"
+                       VerticalOptions="Center"></SearchBar>
+        </Grid>
+
+        <CarouselView IndicatorView="indicatorView"
+                      Grid.Row="2"
+                      x:Name="CvJuegos"
+                      PeekAreaInsets="30">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="0"
+                                   Orientation="Horizontal"
+                                   SnapPointsAlignment="Center"
+                                   SnapPointsType="MandatorySingle"></LinearItemsLayout>
+            </CarouselView.ItemsLayout>
+
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border Grid.RowSpan="3"
+                                BackgroundColor="#311B45"
+                                HeightRequest="300"
+                                Stroke="#6E557C"
+                                StrokeShape="RoundRectangle 30,30,30,30"
+                                StrokeThickness="2"
+                                WidthRequest="300">
+                            <Grid RowDefinitions=".2*,.6*,.2*">
+                                <Image Aspect="AspectFill" 
+                                       Source="{Binding urlImagen}"
+                                       Grid.RowSpan="3"
+                                       HeightRequest="200"
+                                       WidthRequest="250">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ResenasBtn"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <RoundRectangle Grid.RowSpan="3"
+                                                CornerRadius="30"
+                                                HeightRequest="300"
+                                                WidthRequest="300"
+                                                Opacity=".7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                                            <GradientStop Offset="1" Color="#030005"></GradientStop>
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,0">
+                                    <Label FontSize="Large"
+                                           Text="{Binding nombre}"
+                                           FontAttributes="Bold"
+                                           TextColor="White">
+                                    </Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Border.Shadow>
+                                <Shadow Brush="#C283FD"
+                                        Opacity=".7"
+                                        Radius="100"
+                                        Offset="0,0"></Shadow>
+                            </Border.Shadow>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="indicatorView"
+                       Grid.Row="3"
+                       HorizontalOptions="Center"
+                       IndicatorColor="#616161"
+                       IndicatorSize="8"
+                       SelectedIndicatorColor="White"
+                       VerticalOptions="Center"></IndicatorView>
+
+        <Label Grid.Row="4"
+               Margin="25,10,25,10"
+               FontSize="16"
+               Text="Recomendado para ti"
+               TextColor="white"
+               VerticalOptions="Center"></Label>
+
+        <CollectionView Grid.Row="5"
+                        x:Name="CvCategorias">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="30" Orientation="Horizontal"></LinearItemsLayout>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                        <HorizontalStackLayout Spacing="5">
+                            <Button VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   Text="{Binding nombre}"
+                                   Command="{Binding Path=BindingContext.SelectCategoriaCommand, Source={x:Reference CvCategorias}}"
+                                   CommandParameter="{Binding .}">
+                            </Button>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="5" Margin="10,0,15,0" HeightRequest="70" VerticalOptions="End">
+            <Border BackgroundColor="#311B45"
+                    Stroke="#6E557C"
+                    StrokeShape="RoundRectangle 30,30,30,30"
+                    StrokeThickness="2"
+                    Opacity=".95">
+                <Grid ColumnDefinitions="*,2*,*"
+                      RowDefinitions="7*,3*" RowSpacing="4">
+                    <Label Grid.Row="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Favoritos"
+                           TextColor="White"></Label>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="AllGames"
+                           TextColor="White"></Label>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Usuario"
+                           TextColor="White"></Label>
+
+                    <ImageButton Source="homef.svg"
+                                 Clicked="HomeBtn"></ImageButton>
+
+                    <Image Source="logo_game.png" 
+                           Grid.Column="1"></Image>
+
+                    <ImageButton Source="userf.svg"
+                                 Grid.Column="2"
+                                 Clicked="ProfileBtn"></ImageButton>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

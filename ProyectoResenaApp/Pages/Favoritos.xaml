@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoResenaApp.Pages.Favoritos"
+             Title="Favoritos"
+             Shell.BackgroundColor="#311B45"
+             BackgroundColor="#0D0118"
+             NavigationPage.HasBackButton="True">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <CollectionView x:Name="listFavoritos"
+                            ItemsLayout="VerticalGrid, 2"
+                            Margin="0,10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Frame BorderColor="#6E557C" CornerRadius="10" Padding="10" BackgroundColor="#311B45">
+                                <StackLayout>
+                                    <Image WidthRequest="100"
+                                           HeightRequest="100"
+                                           Aspect="AspectFill"
+                                           Source="{Binding background_image}"></Image>
+                                    <Label Text="{Binding name}"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           TextColor="White"
+                                           Margin="0,10,0,0"></Label>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button x:Name="RegresarBTN"
+                    Text="Volver"
+                    Clicked="RegresarBTN_Clicked"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#311B45"
+                    TextColor="White"
+                    CornerRadius="20"
+                    Margin="0,10"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

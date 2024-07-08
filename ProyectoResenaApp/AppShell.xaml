@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ProyectoResenaApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ProyectoResenaApp"
+    xmlns:pages="clr-namespace:ProyectoResenaApp.Pages"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.FlyoutBehavior="Disabled"
+    Title="ProyectoResenaApp">
+
+    <!--<Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                                   StatusBarStyle="LightContent"/>
+    </Shell.Behaviors>
+
+    <Shell.Resources>
+        <Style x:Key="TopNavStyle" TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+            <Setter Property="BarTextColor" Value="{StaticResource Text1}" />
+        </Style>
+    </Shell.Resources>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:OnboardingPage}"
+        Route="OnboardingPage"
+        Shell.NavBarIsVisible="False"
+        Shell.TabBarIsVisible="False"/>
+
+    <ShellContent
+    ContentTemplate="{DataTemplate pages:LoginUsuario}"
+    Route="LoginRegister"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False"/>
+
+    <TabBar>
+
+        <ShellContent
+            Title="Juegos"
+            ContentTemplate="{DataTemplate pages:AllGames}"
+            Icon="game"
+            Route="AllGames"/>
+
+        <ShellContent
+            Title="Perfil"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Icon="user"
+            Route="GameDetails"/>
+    </TabBar>
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:GamesDetails}"
+        Route="GamesDetails"
+        Shell.NavBarIsVisible="False"
+        Shell.TabBarIsVisible="False"/>-->
+
+
+    <ShellContent
+     ContentTemplate="{DataTemplate pages:OnboardingPage}"
+     Route="OnboardingPage"/>
+
+    <ShellContent
+     ContentTemplate="{DataTemplate pages:AllGames}"
+     Route="AllGames"/>
+
+
+
+</Shell>

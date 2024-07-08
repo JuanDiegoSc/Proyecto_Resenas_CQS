@@ -63,6 +63,18 @@
                                 </div>
                             </li>
                         }
+                        else
+                        @if (User.IsInRole(CNT.Cliente))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contenidos</a>
+                                <div class="dropdown-menu">
+
+                                    <a class="dropdown-item" asp-area="Cliente" asp-controller="Resenas" asp-action="Index">Reseñas</a>
+
+                                </div>
+                            </li>
+                        }
 
                     </ul>
                     <form class="busqueda d-flex ms-3 mr-4" asp-controller="Home" asp-action="ResultadoBusqueda" method="get">

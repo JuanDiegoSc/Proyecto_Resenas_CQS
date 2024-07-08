@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoResenaApp.Pages.LoginUsuario"
+             xmlns:local="clr-namespace:ProyectoResenaApp.ViewModels"
+             Title="LoginUsuario">
+
+    <ContentPage.BindingContext>
+        <local:userViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions=".3*, .7*">
+
+        <Image Aspect="AspectFill" Source="control.png"></Image>
+        <Grid BackgroundColor="#969797" Opacity=".8"></Grid>
+        <Grid ColumnDefinitions="*,*">
+            <Image Aspect="AspectFit" 
+                   HeightRequest="120"
+                   Source="logo_game.png"></Image>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <RoundRectangle 
+                Margin="-5,-30,-5,-2"
+                CornerRadius="30,30,0,0"
+                Fill="white"></RoundRectangle>
+            
+            <VerticalStackLayout Margin="30,0,30,0">
+                <Label FontAttributes="Bold"
+                       FontFamily="bold"
+                       FontSize="Medium"
+                       Text="Bienvenido"
+                       TextColor="#2d2d2d"></Label>
+
+                <Label FontFamily="medium"
+                       Text="Inicia Sesión para continuar"
+                       TextColor="#2d2d2d"></Label>
+
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*, .8*">
+                    <RoundRectangle BackgroundColor="#edebf6"
+                                    CornerRadius="10"
+                                    HeightRequest="60"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    WidthRequest="60"></RoundRectangle>
+                    <Image HorizontalOptions="Center"
+                           Source="email.png">
+                    </Image>
+                    <Entry x:Name="emailTxt"
+                        Grid.Column="1"
+                           Placeholder="EMAIL"
+                           Text="{Binding Email}"
+                           VerticalOptions="Center"></Entry>
+                           
+                </Grid>
+
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*, .8*">
+                    <RoundRectangle BackgroundColor="#edebf6"
+                     CornerRadius="10"
+                     HeightRequest="60"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     WidthRequest="60"></RoundRectangle>
+                    <Image HorizontalOptions="Center"
+                            Source="password.png">
+                    </Image>
+                    <Entry  x:Name="contraTxt"
+                        Grid.Column="1"
+                            Placeholder="CONTRASEÑA"
+                            IsPassword="True"
+                            Text="{Binding Password}"
+                            VerticalOptions="Center"></Entry>
+                </Grid>
+
+                <Button Margin="0,20,0,0"
+                        BackgroundColor="LightBlue"
+                        HeightRequest="60"
+                        Text="Iniciar Sesión"
+                        TextColor="Black"
+                        Command="{Binding LoginCommand}"></Button>
+
+                <Button Margin="0,20,0,0"
+                        BackgroundColor="LightBlue"
+                        HeightRequest="60"
+                        Text="Volver"
+                        TextColor="Black"
+                        Clicked="VolverBtn"></Button>
+
+                <Label Margin="0,20,0,-10"
+                       HorizontalOptions="Center"
+                       Text="Olvide mi contraseña"
+                       TextColor="Black"
+                       TextDecorations="Underline"></Label>
+
+                <Button x:Name="CrearCuenta"
+                        Margin="0,30,0,0"
+                        BackgroundColor="LightCyan"
+                        HeightRequest="60"
+                        Text="Crear una cuenta"
+                        TextColor="Black"
+                        Clicked="CrearCuenta_Clicked"></Button>
+            </VerticalStackLayout>
+            
+        </Grid>
+    </Grid>
+    
+    
+    
+</ContentPage>
